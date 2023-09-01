@@ -705,17 +705,160 @@ public abstract class AbstractMultiValuedMapTest<K, V> extends AbstractObjectTes
         map.put((K) "B", (V) "U");
         map.put((K) "B", (V) "V");
         map.put((K) "B", (V) "W");
+        String result = map.toString();
         assertTrue(
-            "{A=[X, Y, Z], B=[U, V, W]}".equals(map.toString()) ||
-            "{B=[U, V, W], A=[X, Y, Z]}".equals(map.toString())
+            "{A=[X, Y, Z], B=[U, V, W]}".equals(result) ||
+            "{A=[X, Y, Z], B=[U, W, V]}".equals(result) ||
+            "{A=[X, Y, Z], B=[V, U, W]}".equals(result) ||
+            "{A=[X, Y, Z], B=[V, W, U]}".equals(result) ||
+            "{A=[X, Y, Z], B=[W, U, V]}".equals(result) ||
+            "{A=[X, Y, Z], B=[W, V, U]}".equals(result) ||
+            "{A=[X, Z, Y], B=[U, V, W]}".equals(result) ||
+            "{A=[X, Z, Y], B=[U, W, V]}".equals(result) ||
+            "{A=[X, Z, Y], B=[V, U, W]}".equals(result) ||
+            "{A=[X, Z, Y], B=[V, W, U]}".equals(result) ||
+            "{A=[X, Z, Y], B=[W, U, V]}".equals(result) ||
+            "{A=[X, Z, Y], B=[W, V, U]}".equals(result) ||
+            "{A=[Y, X, Z], B=[U, V, W]}".equals(result) ||
+            "{A=[Y, X, Z], B=[U, W, V]}".equals(result) ||
+            "{A=[Y, X, Z], B=[V, U, W]}".equals(result) ||
+            "{A=[Y, X, Z], B=[V, W, U]}".equals(result) ||
+            "{A=[Y, X, Z], B=[W, U, V]}".equals(result) ||
+            "{A=[Y, X, Z], B=[W, V, U]}".equals(result) ||
+            "{A=[Y, Z, X], B=[U, V, W]}".equals(result) ||
+            "{A=[Y, Z, X], B=[U, W, V]}".equals(result) ||
+            "{A=[Y, Z, X], B=[V, U, W]}".equals(result) ||
+            "{A=[Y, Z, X], B=[V, W, U]}".equals(result) ||
+            "{A=[Y, Z, X], B=[W, U, V]}".equals(result) ||
+            "{A=[Y, Z, X], B=[W, V, U]}".equals(result) ||
+            "{A=[Z, X, Y], B=[U, V, W]}".equals(result) ||
+            "{A=[Z, X, Y], B=[U, W, V]}".equals(result) ||
+            "{A=[Z, X, Y], B=[V, U, W]}".equals(result) ||
+            "{A=[Z, X, Y], B=[V, W, U]}".equals(result) ||
+            "{A=[Z, X, Y], B=[W, U, V]}".equals(result) ||
+            "{A=[Z, X, Y], B=[W, V, U]}".equals(result) ||
+            "{A=[Z, Y, X], B=[U, V, W]}".equals(result) ||
+            "{A=[Z, Y, X], B=[U, W, V]}".equals(result) ||
+            "{A=[Z, Y, X], B=[V, U, W]}".equals(result) ||
+            "{A=[Z, Y, X], B=[V, W, U]}".equals(result) ||
+            "{A=[Z, Y, X], B=[W, U, V]}".equals(result) ||
+            "{A=[Z, Y, X], B=[W, V, U]}".equals(result) ||
+            "{B=[U, V, W], A=[X, Y, Z]}".equals(result) ||
+            "{B=[U, W, V], A=[X, Y, Z]}".equals(result) ||
+            "{B=[V, U, W], A=[X, Y, Z]}".equals(result) ||
+            "{B=[V, W, U], A=[X, Y, Z]}".equals(result) ||
+            "{B=[W, U, V], A=[X, Y, Z]}".equals(result) ||
+            "{B=[W, V, U], A=[X, Y, Z]}".equals(result) ||
+            "{B=[U, V, W], A=[X, Z, Y]}".equals(result) ||
+            "{B=[U, W, V], A=[X, Z, Y]}".equals(result) ||
+            "{B=[V, U, W], A=[X, Z, Y]}".equals(result) ||
+            "{B=[V, W, U], A=[X, Z, Y]}".equals(result) ||
+            "{B=[W, U, V], A=[X, Z, Y]}".equals(result) ||
+            "{B=[W, V, U], A=[X, Z, Y]}".equals(result) ||
+            "{B=[U, V, W], A=[Y, X, Z]}".equals(result) ||
+            "{B=[U, W, V], A=[Y, X, Z]}".equals(result) ||
+            "{B=[V, U, W], A=[Y, X, Z]}".equals(result) ||
+            "{B=[V, W, U], A=[Y, X, Z]}".equals(result) ||
+            "{B=[W, U, V], A=[Y, X, Z]}".equals(result) ||
+            "{B=[W, V, U], A=[Y, X, Z]}".equals(result) ||
+            "{B=[U, V, W], A=[Y, Z, X]}".equals(result) ||
+            "{B=[U, W, V], A=[Y, Z, X]}".equals(result) ||
+            "{B=[V, U, W], A=[Y, Z, X]}".equals(result) ||
+            "{B=[V, W, U], A=[Y, Z, X]}".equals(result) ||
+            "{B=[W, U, V], A=[Y, Z, X]}".equals(result) ||
+            "{B=[W, V, U], A=[Y, Z, X]}".equals(result) ||
+            "{B=[U, V, W], A=[Z, X, Y]}".equals(result) ||
+            "{B=[U, W, V], A=[Z, X, Y]}".equals(result) ||
+            "{B=[V, U, W], A=[Z, X, Y]}".equals(result) ||
+            "{B=[V, W, U], A=[Z, X, Y]}".equals(result) ||
+            "{B=[W, U, V], A=[Z, X, Y]}".equals(result) ||
+            "{B=[W, V, U], A=[Z, X, Y]}".equals(result) ||
+            "{B=[U, V, W], A=[Z, Y, X]}".equals(result) ||
+            "{B=[U, W, V], A=[Z, Y, X]}".equals(result) ||
+            "{B=[V, U, W], A=[Z, Y, X]}".equals(result) ||
+            "{B=[V, W, U], A=[Z, Y, X]}".equals(result) ||
+            "{B=[W, U, V], A=[Z, Y, X]}".equals(result) ||
+            "{B=[W, V, U], A=[Z, Y, X]}".equals(result)
         );
+        
 
         final MultiValuedMap<K, V> originalNull = null;
         assertThrows(NullPointerException.class, () -> map.putAll(originalNull),
                 "expecting NullPointerException");
+        String result2 = map.toString();
         assertTrue(
-            "{A=[X, Y, Z], B=[U, V, W]}".equals(map.toString()) ||
-            "{B=[U, V, W], A=[X, Y, Z]}".equals(map.toString())
+            "{A=[X, Y, Z], B=[U, V, W]}".equals(result2) ||
+            "{A=[X, Y, Z], B=[U, W, V]}".equals(result2) ||
+            "{A=[X, Y, Z], B=[V, U, W]}".equals(result2) ||
+            "{A=[X, Y, Z], B=[V, W, U]}".equals(result2) ||
+            "{A=[X, Y, Z], B=[W, U, V]}".equals(result2) ||
+            "{A=[X, Y, Z], B=[W, V, U]}".equals(result2) ||
+            "{A=[X, Z, Y], B=[U, V, W]}".equals(result2) ||
+            "{A=[X, Z, Y], B=[U, W, V]}".equals(result2) ||
+            "{A=[X, Z, Y], B=[V, U, W]}".equals(result2) ||
+            "{A=[X, Z, Y], B=[V, W, U]}".equals(result2) ||
+            "{A=[X, Z, Y], B=[W, U, V]}".equals(result2) ||
+            "{A=[X, Z, Y], B=[W, V, U]}".equals(result2) ||
+            "{A=[Y, X, Z], B=[U, V, W]}".equals(result2) ||
+            "{A=[Y, X, Z], B=[U, W, V]}".equals(result2) ||
+            "{A=[Y, X, Z], B=[V, U, W]}".equals(result2) ||
+            "{A=[Y, X, Z], B=[V, W, U]}".equals(result2) ||
+            "{A=[Y, X, Z], B=[W, U, V]}".equals(result2) ||
+            "{A=[Y, X, Z], B=[W, V, U]}".equals(result2) ||
+            "{A=[Y, Z, X], B=[U, V, W]}".equals(result2) ||
+            "{A=[Y, Z, X], B=[U, W, V]}".equals(result2) ||
+            "{A=[Y, Z, X], B=[V, U, W]}".equals(result2) ||
+            "{A=[Y, Z, X], B=[V, W, U]}".equals(result2) ||
+            "{A=[Y, Z, X], B=[W, U, V]}".equals(result2) ||
+            "{A=[Y, Z, X], B=[W, V, U]}".equals(result2) ||
+            "{A=[Z, X, Y], B=[U, V, W]}".equals(result2) ||
+            "{A=[Z, X, Y], B=[U, W, V]}".equals(result2) ||
+            "{A=[Z, X, Y], B=[V, U, W]}".equals(result2) ||
+            "{A=[Z, X, Y], B=[V, W, U]}".equals(result2) ||
+            "{A=[Z, X, Y], B=[W, U, V]}".equals(result2) ||
+            "{A=[Z, X, Y], B=[W, V, U]}".equals(result2) ||
+            "{A=[Z, Y, X], B=[U, V, W]}".equals(result2) ||
+            "{A=[Z, Y, X], B=[U, W, V]}".equals(result2) ||
+            "{A=[Z, Y, X], B=[V, U, W]}".equals(result2) ||
+            "{A=[Z, Y, X], B=[V, W, U]}".equals(result2) ||
+            "{A=[Z, Y, X], B=[W, U, V]}".equals(result2) ||
+            "{A=[Z, Y, X], B=[W, V, U]}".equals(result2) ||
+            "{B=[U, V, W], A=[X, Y, Z]}".equals(result2) ||
+            "{B=[U, W, V], A=[X, Y, Z]}".equals(result2) ||
+            "{B=[V, U, W], A=[X, Y, Z]}".equals(result2) ||
+            "{B=[V, W, U], A=[X, Y, Z]}".equals(result2) ||
+            "{B=[W, U, V], A=[X, Y, Z]}".equals(result2) ||
+            "{B=[W, V, U], A=[X, Y, Z]}".equals(result2) ||
+            "{B=[U, V, W], A=[X, Z, Y]}".equals(result2) ||
+            "{B=[U, W, V], A=[X, Z, Y]}".equals(result2) ||
+            "{B=[V, U, W], A=[X, Z, Y]}".equals(result2) ||
+            "{B=[V, W, U], A=[X, Z, Y]}".equals(result2) ||
+            "{B=[W, U, V], A=[X, Z, Y]}".equals(result2) ||
+            "{B=[W, V, U], A=[X, Z, Y]}".equals(result2) ||
+            "{B=[U, V, W], A=[Y, X, Z]}".equals(result2) ||
+            "{B=[U, W, V], A=[Y, X, Z]}".equals(result2) ||
+            "{B=[V, U, W], A=[Y, X, Z]}".equals(result2) ||
+            "{B=[V, W, U], A=[Y, X, Z]}".equals(result2) ||
+            "{B=[W, U, V], A=[Y, X, Z]}".equals(result2) ||
+            "{B=[W, V, U], A=[Y, X, Z]}".equals(result2) ||
+            "{B=[U, V, W], A=[Y, Z, X]}".equals(result2) ||
+            "{B=[U, W, V], A=[Y, Z, X]}".equals(result2) ||
+            "{B=[V, U, W], A=[Y, Z, X]}".equals(result2) ||
+            "{B=[V, W, U], A=[Y, Z, X]}".equals(result2) ||
+            "{B=[W, U, V], A=[Y, Z, X]}".equals(result2) ||
+            "{B=[W, V, U], A=[Y, Z, X]}".equals(result2) ||
+            "{B=[U, V, W], A=[Z, X, Y]}".equals(result2) ||
+            "{B=[U, W, V], A=[Z, X, Y]}".equals(result2) ||
+            "{B=[V, U, W], A=[Z, X, Y]}".equals(result2) ||
+            "{B=[V, W, U], A=[Z, X, Y]}".equals(result2) ||
+            "{B=[W, U, V], A=[Z, X, Y]}".equals(result2) ||
+            "{B=[W, V, U], A=[Z, X, Y]}".equals(result2) ||
+            "{B=[U, V, W], A=[Z, Y, X]}".equals(result2) ||
+            "{B=[U, W, V], A=[Z, Y, X]}".equals(result2) ||
+            "{B=[V, U, W], A=[Z, Y, X]}".equals(result2) ||
+            "{B=[V, W, U], A=[Z, Y, X]}".equals(result2) ||
+            "{B=[W, U, V], A=[Z, Y, X]}".equals(result2) ||
+            "{B=[W, V, U], A=[Z, Y, X]}".equals(result2)
         );
 
         map.remove("A");
